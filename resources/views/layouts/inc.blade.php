@@ -1,7 +1,7 @@
 @include('includes.head')
 
     <body>
-	
+
         @include('includes.spinner')
         @include('includes.carousel')
         @include('includes.facilities')

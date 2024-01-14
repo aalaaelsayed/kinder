@@ -25,4 +25,7 @@
         @section('title')
         404
         @endsection
+        @section('t')
+      404
+            @endsection
  

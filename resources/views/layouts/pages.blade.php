@@ -3,9 +3,10 @@
 @include('includes.head')
  
     <body>
-	
+
         @include('includes.spinner')
 		@include('includes.navbar')
+        @include('includes.header')
 
 	
 @yield('content')

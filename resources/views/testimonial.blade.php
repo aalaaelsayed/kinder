@@ -74,3 +74,6 @@
         @section('title')
         Testimonial
         @endsection
+        @section('t')
+        Testimonial
+            @endsection

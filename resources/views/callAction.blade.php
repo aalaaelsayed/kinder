@@ -51,3 +51,6 @@
       @section('title')
       Call To Action
       @endsection
+      @section('t')
+      Call To Action
+      @endsection
