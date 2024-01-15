@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\AppointmentController;
+
 
 
 
