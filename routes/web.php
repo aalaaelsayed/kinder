@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\controllers\KinderController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\ImageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,9 +22,9 @@ Route::get('/', function () {
 //     return view('index');
 // })->name('index');
 //////////////////////////
-// Route::fallback(function () {
-//     return view('404');
-// });
+Route::fallback(function () {
+    return view('404');
+});
 //////////////////////
 // Route::get('about', function () {
 //     return view('about');
@@ -62,6 +64,7 @@ Route::get('/appointment', [KinderController::class, 'appointment'])->name('appo
 Route::get('/classes', [KinderController::class, 'classes'])->name('classes');
 Route::get('callAction', [KinderController::class, 'action'])->name('callAction');
 //Route::fallback('/404', [KinderController::class, 'error'])->name('404');
+Route::post('imageUpload',[ImageController::class,'upload'])->name('imageUpload');
 
 /////////////////////////////////
 

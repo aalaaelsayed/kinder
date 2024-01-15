@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\models\Testimonial;
+
+use App\Traits\Common;
 
 class KinderController extends Controller
 {
+    private $columns = ['clientName', 'profession', 'published','content'];
+
     //
     public function index()
     {
@@ -45,7 +50,9 @@ class KinderController extends Controller
    
     public function testimonial()
     {
-        return view('testimonial');
+        $testimonials =Testimonial::get();
+
+        return view('testimonial',compact("testimonials"));
     }
     public function facilities()
     {
