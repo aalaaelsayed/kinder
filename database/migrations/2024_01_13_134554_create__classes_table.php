@@ -14,16 +14,14 @@ return new class extends Migration
         Schema::create('classes', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('className',50)->constrained('children');
-            $table->string('teacherId');
-            $table->integer('age');
-            $table->date('time');
-            $table->string('capacity',3);
-            $table->string('price',20);
+            $table->foreignId('teacherId')->constrained('teachers');
+            $table->string('className');
+            $table->tinyInteger('age');
+            $table->time('time');
+            $table->tinyInteger('capacity');
+            $table->tinyInteger('price');
             $table->boolean('active');
             $table->string('class_image',100);
-
-
             $table->softDeletes(); 
         });
     }

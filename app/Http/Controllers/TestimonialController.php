@@ -9,7 +9,6 @@ use App\Traits\Common;
 class TestimonialController extends Controller
 {
     use Common;
-  // private $columns = ['clientName', 'profession', 'published','content'];
 
     /**
      * Display a listing of the resource.

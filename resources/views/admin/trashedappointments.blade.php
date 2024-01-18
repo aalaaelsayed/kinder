@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title> Appointment list</title>
+  <title>trashed </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,7 +11,7 @@
 <body>
 @include('admin.includes.navappointment')
 <div class="container">
-  <h2> Appointmentl list</h2>
+  <h2> trashed list</h2>
   <p></p>            
   <table class="table table-hover">
     <thead>
@@ -19,11 +19,8 @@
         <th>guardianName</th>
         <th>guradianEmail</th>
         <th>childName</th>
-        <th>childAge</th>
-
-        <th>show</th>
-        <th>Delete</th>
-
+        <th>delete</th>
+        <th>restore</th>
 
 
 
@@ -31,16 +28,16 @@
       </tr>
     </thead>
     <tbody>
-    @foreach($appointments as $appointment)
-
+        @foreach($appointments as $appointment)
       <tr>
         <td>{{ $appointment->guardianName }}</td>
         <td>{{ $appointment->guradianEmail }}</td>
-        <td>{{ $appointment->childName }} </td>
-        <td>{{$appointment->childAge}}</td>
-        <td><a href="viewappointments/{{ $appointment->id }}">show</a></td>
-        <td><a href="deleteAppointments/{{ $appointment->id }}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
+        <td>{{ $appointment->childName }}</td>
 
+
+     
+        <td><a href="forceDelete/{{ $appointment->id }}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
+        <td><a href="restoreAppointments/{{ $appointment->id }}">restoreAppointments</a></td>
 
       </tr>
 

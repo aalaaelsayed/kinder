@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Traits\Common;
 use App\models\Appointment;
+use Mail;
+use App\Http\controllers\KinderController;
+use App\models\Email;
+use App\Mail\DemoMail;
 
 class AppointmentController extends Controller
 {
@@ -25,7 +28,6 @@ class AppointmentController extends Controller
     {
         //
         return view ('admin.Appointmentlist');
-
     }
 
     /**
@@ -54,7 +56,7 @@ class AppointmentController extends Controller
     {
         //
         $appointments = Appointment::findOrFail($id);
-        return view ('admin.viewTestimonials',compact("appointments"));
+        return view ('admin.viewappointments',compact("appointments"));
     }
 
     /**
@@ -79,6 +81,47 @@ class AppointmentController extends Controller
     public function destroy(string $id)
     {
         //
+        Appointment::where ('id',$id) ->delete();
+return redirect('admin/appointments');
+    }
+
+    public function trashed()
+    {
+        //
+      $appointments = Appointment::onlyTrashed()->get();
+return view ('admin.trashedappointments',compact("appointments"));
+
+    }
+    
+    public function forceDelete(string $id)
+    {
+        //
+        Appointment::where ('id',$id) ->forceDelete();
+        return redirect('admin/appointments');
+    }
+    public function restore(string $id)
+    {
+        //
+        Appointment::where ('id',$id) ->restore();
+        return redirect('admin/appointments');
+    }
+    public function sandemail(Request $request)
+    {
+     $data = $request->validate([
+                'guardianName'=>'required|string|max:50',
+                'guradianEmail'=> 'required|string',
+                'childName' => 'required|string',
+                'childAge' => 'required',
+                'message' => 'required',
+   ]);
+    
+  
+   Appointment::create($data);
+            Mail::to( 'alaa@email.com')->send( new DemoMail($data));
+         //   return "mail sent!";
+           return redirect('contact');
+
+            
     }
     public function messages(){
         return [
@@ -87,9 +130,6 @@ class AppointmentController extends Controller
             'childName.required'=> 'should be text',
             'childAge.string'=>'Should be string',
             'message.string'=>'Should be string',
-          
-           
-
             ];
     }
 }

@@ -5,6 +5,9 @@ use App\Http\controllers\KinderController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\ContactController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -67,16 +70,22 @@ Route::get('/classes', [KinderController::class, 'classes'])->name('classes');
 Route::get('callAction', [KinderController::class, 'action'])->name('callAction');
 //Route::fallback('/404', [KinderController::class, 'error'])->name('404');
 Route::post('imageUpload',[ImageController::class,'upload'])->name('imageUpload');
+////////////////////////////////////////////////////////////////////
 Route::get('Appointmentindex', [AppointmentController::class, 'create'])->name('Appointmentindex');
 Route::get('appointmentindexxx',[AppointmentController::class,'index']);
-
 Route::post('Appointmentlist', [AppointmentController::class, 'store'])->name('Appointmentlist');
+Route::post('test30',[AppointmentController::class,'sandemail'])->name('test30');
 
 
 /////////////////////////////////
+Route::post('test60',[ContactController::class,'sandemail'])->name('test60');
+
+//////////////////////////////////
 
 Route::get('callAction', [KinderController::class, 'action'])->name('callAction');
 
 Auth::routes(['verify'=>true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//////////////////////////////
+

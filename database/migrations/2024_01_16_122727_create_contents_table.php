@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('children', function (Blueprint $table) {
+        Schema::create('contents', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 50);
+            $table->string('email', 50);
+            $table->string('subject', 30);
+            $table->longText('message');
             $table->timestamps();
-            $table->string('childname',50);
-            $table->string('classId');
-            $table->integer('childAge');
-            $table->softDeletes(); 
-
 
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('children');
+        Schema::dropIfExists('contents');
     }
 };

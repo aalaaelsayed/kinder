@@ -15,15 +15,12 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('position',50);
-            $table->foreignId('teacher_id')->constrained('classes');
             $table->string('teacherName',100);
             $table->string('image',100);
-            $table->string('facebook',100);
-            $table->string('twiter',100);
+            $table->string('facebook');
+            $table->string('twiter');
             $table->boolean('active');
-            $table->string('instagram',100);
-
-
+            $table->string('instagram');
             $table->softDeletes(); 
         });
     }

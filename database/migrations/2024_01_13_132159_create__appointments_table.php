@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('guardianName',50);
             $table->string('guradianEmail',50)->unique();
             $table->string('childName',50);
-            $table->string('childAge',2);
+            $table->tinyInteger('childAge');
             $table->longText('message',100)->nullable();
             $table->softDeletes(); 
 

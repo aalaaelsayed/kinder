@@ -9,7 +9,7 @@
                         <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
                             <div class="h-100 d-flex flex-column justify-content-center p-5">
                                 <h1 class="mb-4">Make Appointment</h1>
-                                <form action="{{ route('Appointmentlist')}}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('test30')}}" method="post" enctype="multipart/form-data">
                                 @csrf
 
                                     <div class="row g-3">
