@@ -6,6 +6,10 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\TeacherController;
+
+use App\Http\Controllers\ClassesController;
+
 
 
 
@@ -66,7 +70,7 @@ Route::get('/contact', [KinderController::class, 'contact'])->name('contact');
 Route::get('/facilities', [KinderController::class, 'facilities'])->name('facilities');
 Route::get('/testimonial', [KinderController::class, 'testimonial'])->name('testimonial');
 Route::get('/appointment', [KinderController::class, 'appointment'])->name('appointment');
-Route::get('/classes', [KinderController::class, 'classes'])->name('classes');
+Route::get('/classess', [KinderController::class, 'classes'])->name('classess');
 Route::get('callAction', [KinderController::class, 'action'])->name('callAction');
 //Route::fallback('/404', [KinderController::class, 'error'])->name('404');
 Route::post('imageUpload',[ImageController::class,'upload'])->name('imageUpload');

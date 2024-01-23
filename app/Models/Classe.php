@@ -21,9 +21,10 @@ class Classe extends Model
         'class_image',
         'teacherId',
         ];
-        public function Teacher()
+     
+        public function teachers()
         {
-        return $this->belongsTo (Teacher::class);
+        return $this->belongsTo (Teacher::class,'teacherId');
         }
 
 }

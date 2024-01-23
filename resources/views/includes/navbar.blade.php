@@ -10,7 +10,7 @@
                     
                     <a href="{{ Route ('index') }}" class="nav-item nav-link  {{ request()->routeIs('index') ? 'active' : '' }}">Home</a>
                     <a href="{{ Route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About Us</a>                   
-                     <a href="{{ Route ('classes') }}" class="nav-item nav-link {{ request()->routeIs('classes') ? 'active' : '' }}" >Classes</a>
+                     <a href="{{ Route ('classess') }}" class="nav-item nav-link {{ request()->routeIs('classes') ? 'active' : '' }}" >Classes</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle {{ (request()->routeIs('facilities') || request()->routeIs('teachers') || request()->routeIs('become_teacher') || request()->routeIs('appointment') || request()->routeIs('callToAction') ) ? 'active' : '' }}" data-bs-toggle="dropdown">Pages</a>
                         <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
