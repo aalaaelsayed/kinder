@@ -16,6 +16,8 @@ class Testimonial extends Model
         'image',
         'content',
         'published',
-      
+        'read_at',
+
         ];
+
 }

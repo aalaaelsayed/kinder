@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\models\Testimonial;
+use DB;
 
 use Illuminate\Http\Request;
 use App\Traits\Common;
@@ -18,8 +19,9 @@ class TestimonialController extends Controller
     {
         //
         $testimonials =Testimonial::get();
+        $testimonials = Testimonial::paginate(3);
         return view ('admin.testimoninals',compact("testimonials"));
-   
+
       
     }
 
@@ -62,8 +64,10 @@ return redirect ('admin/testimonials');
     public function show(string $id)
     {
         //
+        DB::table('testimonials')->where('id', $id)->update(array('read_at'=> 1));
         $testimonials = Testimonial::findOrFail($id);
         return view ('admin.viewTestimonials',compact("testimonials"));
+   
     }
 
     /**

@@ -14,5 +14,6 @@ class Email extends Model
         'message',
         'guradianEmail',
         'guardianName',
+
         ];
 }

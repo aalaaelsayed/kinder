@@ -24,6 +24,8 @@
         <th>edit</th>
         <th>show</th>
         <th>delete</th>
+        <th>read</th>
+
 
 
 
@@ -31,23 +33,31 @@
       </tr>
     </thead>
     <tbody>
+
     @foreach($testimonials as $testimonial)
 
       <tr>
         <td>{{ $testimonial->clientName }}</td>
         <td>{{ $testimonial->profession }}</td>
         <td>{{ $testimonial->content }} </td>
+
         <td>@if($testimonial->published)yes @else no @endif</td>
+
         <td><a href="editTestimoninals/{{ $testimonial->id }}">Edit</a></td>
         <td><a href="viewTestimoninals/{{ $testimonial->id }}">show</a></td>
         <td><a href="deleteTestimoninals/{{ $testimonial->id }}" onclick="return confirm('Are you sure you want to delete?')">Delete</a></td>
+        <td>@if($testimonial->read_at)read @else unread @endif</td>
+
+
 
       </tr>
 
      @endforeach
+     <td>unread message :{{$unread}}</td>
+
     </tbody>
   </table>
 </div>
-
+{{$testimonials->links()}}
 </body>
 </html>

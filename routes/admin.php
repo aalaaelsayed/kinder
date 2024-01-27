@@ -6,6 +6,9 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\ContactController;
+
+//Route::prefix('admin')->middleware('verified')->group(function () {
 
 Route::prefix('admin')->group(function () {
     Route::get('addtest',[TestimonialController::class,'create'])->name('addtest');
@@ -44,13 +47,16 @@ Route::post('storeTeacher',[TeacherController::class,'store'])->name('storeTeach
 Route::get('teacherlist',[TeacherController::class,'index'])->name('teacherlist');
 Route::get('editteachers/{id}',[TeacherController::class,'edit'])->name('editteachers');
 Route::put('updateachers/{id}',[TeacherController::class,'update'])->name('updateachers');
- Route::get('showteacher/{id}',[TeacherController::class,'show'])->name('showteacher');
+Route::get('showteacher/{id}',[TeacherController::class,'show'])->name('showteacher');
 Route::get('deleteteacher/{id}',[TeacherController::class,'destroy']);
 Route::get('trashedteacher',[TeacherController::class,'trashed'])->name('trashedteacher');
 Route::get('forceDelete/{id}',[TeacherController::class,'forceDelete'])->name('forceDelete');
 Route::get('restoreteacher/{id}',[TeacherController::class,'restore'])->name('restoreteacher');
+////////////////////////////
 
-
+Route::get('contacts', [ContactController::class, 'index'])->name('contacts');
+Route::get('showcontact/{id}', [ContactController::class,'show']);
+Route::get('deletecontact/{id}', [ContactController::class,'destroy']);
    
 });
 ?>

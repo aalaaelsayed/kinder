@@ -7,6 +7,7 @@
       <li><a href="{{ route('trashedclasses') }}">trashed</a></li>
 
 
+      <li><a href="{{ route('addClasse') }}">create</a></li>
 
       <li><a href="#">Page 3</a></li>
     </ul>

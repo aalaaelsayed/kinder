@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('profession',50);
             $table->string('image',100);
             $table->boolean('published');
+           $table->boolean('read_at')->default(0);
+
             $table->longText('content');
             $table->softDeletes(); 
 
@@ -31,4 +33,5 @@ return new class extends Migration
     {
         Schema::dropIfExists('testimonials');
     }
+    
 };

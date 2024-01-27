@@ -16,11 +16,16 @@ class KinderController extends Controller
     //
     public function index()
     {
-       $teachers =Teacher::get();
-        $classes =Classe::get();
-
-        return view('index',compact("teachers","classes"));
+       $teachers =Teacher::where('active', 1)->take(3)->get();
+        $classes =Classe::where('active', 1)->take(5)->get();
+        $testimonials =Testimonial::where('published', 1)->take(5)->get();
+        return view('index',compact("teachers","classes","testimonials"));
     }
+
+
+ 
+
+
     public function team()
     {
      $teachers =Teacher::get();

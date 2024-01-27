@@ -26,7 +26,8 @@ class TeacherController extends Controller
     public function create()
     {
         //
-        return view ('admin.teacherlist');
+
+        return view ('admin.addTeacher');
     }
 
     /**
@@ -48,7 +49,7 @@ class TeacherController extends Controller
         $fileName = $this->uploadFile($request->image, 'assets/images');    
         $data['image'] = $fileName;
                 Teacher::create($data);
-                return redirect ('teacherlist');
+                return redirect ('admin/teacherlist');
     }
 
     /**

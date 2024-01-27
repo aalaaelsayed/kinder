@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use DB;
 
 use Illuminate\Http\Request;
 use App\models\Contact;
@@ -19,6 +20,10 @@ class ContactController extends Controller
     public function index()
     {
         //
+        $contents = Contact::paginate(5);
+
+        $contents = Contact::get();
+        return view('admin.contacts', compact('contents'));
     }
 
     /**
@@ -44,6 +49,9 @@ class ContactController extends Controller
     public function show(string $id)
     {
         //
+        DB::table('contents')->where('id', $id)->update(array('read_at'=> 1));
+        $contact= Contact::findOrFail($id);
+        return view('admin.showcontact', compact('contact'));
     }
 
     /**
@@ -68,7 +76,10 @@ class ContactController extends Controller
     public function destroy(string $id)
     {
         //
+        Contact::where('id', $id)->delete();
+        return redirect('admin/contacts')->with('danger', 'Delete Data Success');
     }
+
     public function sandemail(Request $request)
     {
      $data = $request->validate([
