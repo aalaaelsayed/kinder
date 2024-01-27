@@ -8,9 +8,8 @@ use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ContactController;
 
-//Route::prefix('admin')->middleware('verified')->group(function () {
+Route::prefix('admin')->middleware('verified')->group(function () {
 
-Route::prefix('admin')->group(function () {
     Route::get('addtest',[TestimonialController::class,'create'])->name('addtest');
     Route::post('imageUpload',[ImageController::class,'upload'])->name('imageUpload');
     Route::post('insert',[TestimonialController::class,'store'])->name('insert');
